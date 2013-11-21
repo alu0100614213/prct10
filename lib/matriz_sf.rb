@@ -1,8 +1,8 @@
 require "matriz_sf/version"
 
 module Matriz_sf
-    class Matriz
-        
+  class Matriz
+    
         def initialize(f=0,c=0)
             @fil = r
             @col = c
@@ -12,7 +12,7 @@ module Matriz_sf
 	
 	##Declarar metodos abstactos
     end
-	
+    
   class VectorDisperso
     attr_reader :vector
     
@@ -30,7 +30,7 @@ module Matriz_sf
     end
   end
 
-  class MatrizDispersa
+  class MatrizDispersa < Matriz
     attr_reader :matrix
     
     def initialize(h = {})
@@ -63,9 +63,9 @@ module Matriz_sf
     end
   end
 
-	class MatrizDensa
-	  
+  class MatrizDensa < Matriz
 	  def initialize (matrix, tam = matrix[0].size)
+	    super(matrix.size,tam)
 	    @matrix = matrix
 	    @fila = matrix.size
 	    @columna = tam
