@@ -80,6 +80,24 @@ module Matriz_sf
 		      str = @matrix.map {|k,v| "#{k} => #{v.to_s}"}.join(", ")
 		      str = "{ #{str} }"
 		    end
+		    
+		    def max
+            maximo=@matrix[0]
+            for i in (1..@matrix.length)
+                if maximo < @matrix[i]
+                    maximo=@matrix[i]
+                end
+            end
+        end
+
+        def min
+            minimo=@matrix[0]
+            for i in (1..@matrix.length)
+                if minimo > @matrix[i]
+                    minimo=@matrix[i]
+                end
+            end
+        end
 	  end
 
 	class MatrizDensa < Matriz
