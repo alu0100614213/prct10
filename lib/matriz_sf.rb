@@ -16,8 +16,22 @@ module Matriz_sf
 		end
 		    
 		def +(b)
-		    
-		    raise "Error. metodo no definido."
+		    raise ArgumentError, "Matrix size must be equal" unless @fil == other.fil && @col == other.col
+		    m = MatrizDensa.new(@fil, @col)
+		    @fil.times do |i|
+		        @col.times do |j|
+		            if self[i][j] == nil && other[i][j] == nil
+		                m[i][j] = 0
+		            elsif self[i][j] == nil && other[i][j] != nil
+		                m[i][j] = other[i][j]
+		            elsif self[i][j] != nil && other[i][j] == nil
+		                m[i][j] = self[i][j]
+		            else
+		                m[i][j] = self[i][j] + other[i][j]
+		            end
+		        end
+		    end
+		    m
 		end
 		
 		def -(b)
