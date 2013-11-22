@@ -16,6 +16,7 @@ module Matriz_sf
 		end
 		    
 		def +(b)
+		    
 		    raise "Error. metodo no definido."
 		end
 		
@@ -141,22 +142,26 @@ module Matriz_sf
 		  
 			 
 		  def +(o)
-			 raise unless (o.is_a? Matriz) and (fila == o.fila) and (columna == o.columna)
-			   mat = []
-			   x = y = 0
-			   while x < fila
-			while y < columna
-			  if y == 0
-				 mat << [matrix[x][y] + o.matrix[x][y]]
-			  else
-				 mat[x] << (matrix[x][y] + o.matrix[x][y])
-			  end
-			  y += 1
-			end
-			x += 1
-			y = 0
-			   end
-			   Matriz.new(mat)
+			 if o.is_a?(MatrizDispersa)
+			   super
+			 else
+			    raise unless (o.is_a? Matriz) and (fila == o.fila) and (columna == o.columna)
+			      mat = []
+			      x = y = 0
+			      while x < fila
+			    while y < columna
+			      if y == 0
+				    mat << [matrix[x][y] + o.matrix[x][y]]
+			      else
+				    mat[x] << (matrix[x][y] + o.matrix[x][y])
+			      end
+			      y += 1
+			    end
+			    x += 1
+			    y = 0
+			      end
+			      Matriz.new(mat)
+			 end
 		  end
 		  
 		  def *(o)
