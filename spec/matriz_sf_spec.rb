@@ -21,7 +21,23 @@ describe Matriz_sf do
             it 'Existe metodo to_s ?' do
                 MM.should respond_to("to_s")
             end
-
+	
         end
+	describe MatrizDensa do
+	    before :all do 
+		M1 = MatrizDensa.new([3,4],[5,6])
+		
+	    end
+	    it 'Suma matriz dispersa y matriz densa' do
+		M2 = MatrizDispersa.new(2,2,0 => { 0 => 1, 1 => 2}, 1 => { 0 => 3, 1 => 4})
+		
+		m = M1 + M2
+		
+		m[0][0].should eq(2)
+                m[0][1].should eq(4)
+                m[1][0].should eq(6)
+                m[1][1].should eq(8)
+	    end
+	end
     end
  end

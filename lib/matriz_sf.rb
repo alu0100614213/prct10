@@ -67,15 +67,16 @@ module Matriz_sf
 	class MatrizDispersa < Matriz
 		    attr_reader :matrix
 		    
-		    def initialize(h = {})
+		    def initialize(fil, col, h = {})
 		      @matrix = Hash.new({})
 		      for k in h.keys do 
-			@matrix[k] = if h[k].is_a? Vectordisperso
-				      h[k]
+			if h[k].is_a? Vectordisperso
+				      @matrix[k]=h[k]
 				    else 
 				      @matrix[k] = Vectordisperso.new(h[k])
 				    end
 		      end
+		      super(fil, col)
 		    end
 
 		    def [](i)
