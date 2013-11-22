@@ -1,4 +1,4 @@
-require "matriz_sf.rb"
+require 'spec_helper'
 include Matriz_sf
 
 describe Matriz_sf do
@@ -8,7 +8,7 @@ describe Matriz_sf do
             MM = Matriz.new
         end
         
-        describe "Basic" do
+        describe "Matriz padre" do
             it 'Existe una clase abstracta Matriz?' do
                 MM.instance_of?(Matriz) == true
             end
