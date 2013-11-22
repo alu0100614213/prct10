@@ -1,6 +1,8 @@
 require 'spec_helper'
 include Matriz_sf
 
+
+
 describe Matriz_sf do
   
    describe Matriz do
@@ -13,10 +15,10 @@ describe Matriz_sf do
                 MM.instance_of?(Matriz) == true
             end
             it 'se puede acceder a los atributos (fila)?' do
-                MM.fila.should == 0
+                MM.fil.should == 0
             end
 
-            it 'Existe metodo to_s abstracto?' do
+            it 'Existe metodo to_s ?' do
                 MM.should respond_to("to_s")
             end
 

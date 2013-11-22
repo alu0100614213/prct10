@@ -4,11 +4,11 @@ module Matriz_sf
 	class Matriz
 	    
 		def initialize(f=0,c=0)
-		    @fil = r
+		    @fil = f
 		    @col = c
 		end
 
-		attr_accessor :fila,:col
+		attr_accessor :fil,:col
 	
 		##Declarar metodos abstactos
 	 	def to_s
